@@ -9,7 +9,7 @@ module.exports = {
         'at-rule-no-unknown'       : [
             true,
             {
-                ignoreAtRules: ['function', 'if', 'each', 'else', 'include', 'mixin', 'return', 'for', 'use', 'forward', 'debug', 'warn', 'extend'],
+                ignoreAtRules: ['function', 'if', 'each', 'else', 'include', 'mixin', 'return', 'for', 'use', 'forward', 'debug', 'warn', 'extend', 'tailwind', 'apply'],
             },
         ],
         'font-family-no-missing-generic-family-keyword': null,
