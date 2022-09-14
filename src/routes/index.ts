@@ -9,7 +9,7 @@ import * as Layout from '@/layouts';
 /**
  * Components
  */
-import App from '@/components/App';
+import App from '@pages/App';
 
 /**
  * Routes

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AppRoutes from '@/routes/Routes';
 import reportWebVitals from './reportWebVitals';
-import './main.scss';
+import { MantineProvider } from '@mantine/core';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -10,7 +10,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <AppRoutes />
+        <MantineProvider withGlobalStyles withNormalizeCSS>
+            <AppRoutes />
+        </MantineProvider>
     </React.StrictMode>,
 );
 
