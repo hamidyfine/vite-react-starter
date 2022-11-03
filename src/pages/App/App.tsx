@@ -1,16 +1,15 @@
 import { Outlet } from 'react-router-dom';
-import { AppShell, Header, Footer } from '@mantine/core';
 import './App.scss';
 
 function App() {
     return (
-        <AppShell
-            padding="md"
-            header={<Header height={60} p="xs">{/* Footer content */}</Header>}
-            footer={<Footer height={60} p="xs">{/* Header content */}</Footer>}
-        >
+        <>
+            <h1 className="text-3xl font-bold underline">
+                Hello world!
+            </h1>
+            <button className="btn">Button</button>
             <Outlet />
-        </AppShell>
+        </>
     );
 }
 
