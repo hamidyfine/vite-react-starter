@@ -32,10 +32,18 @@ const AppRoutes = () => {
             <Routes>
                 {routes.map((route, index) => {
                     return (
-                        <Route key={index} path={route.path} element={<RouteComponent route={route} />}>
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={<RouteComponent route={route} />}
+                        >
                             {route.children?.length && route.children.map((child: TRoute, i) => {
                                 return (
-                                    <Route key={i} path={`${route.path}${child.path}`} element={<RouteComponent route={child} />} />
+                                    <Route
+                                        key={i}
+                                        path={`${route.path}${child.path}`}
+                                        element={<RouteComponent route={child} />}
+                                    />
                                 );
                             })}
                         </Route>

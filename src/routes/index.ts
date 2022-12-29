@@ -1,9 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /* ROUTES MAP                                                                 */
 /* -------------------------------------------------------------------------- */
-/**
- * Layouts will be imported here and are available by Layout instance
- */
+
 import * as Layout from '@/layouts';
 
 /**
@@ -21,7 +19,7 @@ const routes = [
         layout   : Layout.DefaultLayout,
         component: App,
         children : []
-    }
+    },
 ];
 
 export default routes;
