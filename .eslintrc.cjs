@@ -8,11 +8,9 @@ module.exports = {
         parser: '@typescript-eslint/parser',
     },
     extends: [
-        'plugin:import/recommended',
         'react-app',
         'react-app/jest',
         'plugin:react-hooks/recommended',
-        'plugin:jsx-a11y/recommended',
         'plugin:json/recommended',
     ],
     rules: {
