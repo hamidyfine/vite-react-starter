@@ -1,28 +1,51 @@
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation, withTranslation } from 'react-i18next';
 import i18n from '@/i18n';
+import resources from '@/locales';
 
 type TLocaleProps = {
     ns?: string;
-    alias?: string;
+    alias: string;
     trans?: string;
     values?: object;
     components?: any;
 };
 
-export const localize = (string: string, values?: any) => {
-    if (!string) return '';
+export const ChangeLocale = () => {
+    const changeLocale = (locale: string) => {
+        i18n.changeLanguage(locale);
+    };
 
-    return i18n.t(string, { defaultValue: string, ...values });
+    return (
+        <div>
+            {resources.locales.map((locale) => (
+                <button
+                    key={locale}
+                    onClick={() => changeLocale(locale)}
+                >
+                    {locale}
+                </button>
+            ))}
+        </div>
+    );
 };
 
-export const Locale = ({ns, alias, trans, values, components}: TLocaleProps) => {
+const LocaleParser = ({ns, alias, trans, values, components}: TLocaleProps) => {
+    if (!alias) {
+        return null;
+    }
+
     const i18nKey = `${ns ? `${ns}:` : ''}${alias}`;
+
     return (
         <Trans
-            i18nKey={i18nKey}
-            defaults={trans}
-            values={values}
             components={components}
+            defaults={trans}
+            i18nKey={i18nKey}
+            values={values}
         />
     );
 };
+
+export const Locale = withTranslation()(LocaleParser);
+
+export const useLocale = useTranslation;

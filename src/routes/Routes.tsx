@@ -34,15 +34,15 @@ const AppRoutes = () => {
                     return (
                         <Route
                             key={index}
-                            path={route.path}
                             element={<RouteComponent route={route} />}
+                            path={route.path}
                         >
                             {route.children?.length && route.children.map((child: TRoute, i) => {
                                 return (
                                     <Route
                                         key={i}
-                                        path={`${route.path}${child.path}`}
                                         element={<RouteComponent route={child} />}
+                                        path={`${route.path}${child.path}`}
                                     />
                                 );
                             })}

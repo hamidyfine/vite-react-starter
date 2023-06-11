@@ -14,11 +14,11 @@ import App from '@pages/App';
  */
 const routes = [
     {
-        name     : 'App',
-        path     : '/',
-        layout   : Layout.DefaultLayout,
+        name: 'App',
+        path: '/',
+        layout: Layout.DefaultLayout,
         component: App,
-        children : []
+        children: [],
     },
 ];
 

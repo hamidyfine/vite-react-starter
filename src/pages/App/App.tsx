@@ -1,14 +1,20 @@
-import { Outlet } from 'react-router-dom';
+import { ChangeLocale, Locale, useLocale } from '@/components/Locale';
 import './App.scss';
 
 function App() {
+    const { t } = useLocale();
+
     return (
         <>
             <h1 className="text-3xl font-bold underline">
-                Hello world!
+                <Locale alias="hello" />
             </h1>
-            <button className="btn">Button</button>
-            <Outlet />
+            <br />
+            <button>
+                {t('button:click')}
+            </button>
+            <br />
+            <ChangeLocale />
         </>
     );
 }
