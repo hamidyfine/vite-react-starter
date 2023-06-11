@@ -25,3 +25,4 @@ dist-ssr
 
 # Localalization Config File
 src/locales/index.ts
+src/locales/index.ts
