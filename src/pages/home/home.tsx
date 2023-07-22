@@ -1,7 +1,7 @@
-import { ChangeLocale, Locale, useLocale } from '@/components/Locale';
-import './App.scss';
+import { ChangeLocale, Locale, useLocale } from '@/components/locale';
+import './home.scss';
 
-function App() {
+const Home = () => {
     const { t } = useLocale();
 
     return (
@@ -17,6 +17,6 @@ function App() {
             <ChangeLocale />
         </>
     );
-}
+};
 
-export default App;
+export default Home;

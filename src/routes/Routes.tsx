@@ -1,14 +1,7 @@
+import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import routes from '@/routes/index';
-import { TLayoutProps } from '@/layouts';
-
-type TRoute = {
-    name: string;
-    path: string;
-    layout: ({ children }: TLayoutProps) => JSX.Element;
-    component: () => JSX.Element;
-    children?: TRoute[];
-}
+import routes from './index';
+import { TRoute } from '@/config/routes';
 
 type TRouteComponentProps = {
     route: TRoute;
@@ -29,27 +22,30 @@ const RouteComponent = ({ route }: TRouteComponentProps) => {
 const AppRoutes = () => {
     return (
         <BrowserRouter>
-            <Routes>
-                {routes.map((route, index) => {
-                    return (
-                        <Route
-                            key={index}
-                            element={<RouteComponent route={route} />}
-                            path={route.path}
-                        >
-                            {route.children?.length && route.children.map((child: TRoute, i) => {
-                                return (
-                                    <Route
-                                        key={i}
-                                        element={<RouteComponent route={child} />}
-                                        path={`${route.path}${child.path}`}
-                                    />
-                                );
-                            })}
-                        </Route>
-                    );
-                })}
-            </Routes>
+            {/* TODO: Add Loading Component */}
+            <Suspense fallback={<p>Loading....</p>}>
+                <Routes>
+                    {routes.map((route, index) => {
+                        return (
+                            <Route
+                                key={index}
+                                element={<RouteComponent route={route} />}
+                                path={route.path}
+                            >
+                                {route.children?.length && route.children.map((child: TRoute, i) => {
+                                    return (
+                                        <Route
+                                            key={i}
+                                            element={<RouteComponent route={child} />}
+                                            path={`${route.path}${child.path}`}
+                                        />
+                                    );
+                                })}
+                            </Route>
+                        );
+                    })}
+                </Routes>
+            </Suspense>
         </BrowserRouter>
     );
 };

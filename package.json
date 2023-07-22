@@ -5,7 +5,7 @@
   "build": "./build",
   "type": "module",
   "scripts": {
-    "bootstrap": "yarn && yarn translation && yarn build",
+    "bootstrap": "yarn && yarn translation && tsc && vite build",
     "dev": "vite --port=4000",
     "build": "yarn translation && tsc && vite build",
     "preview": "vite preview",
