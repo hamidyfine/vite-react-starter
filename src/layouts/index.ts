@@ -1,8 +1,4 @@
-import DefaultLayout from './DefaultLayout';
-
-export type TLayoutProps = {
-    children?: React.ReactNode
-}
+import DefaultLayout from './default.layout';
 
 export {
     DefaultLayout,

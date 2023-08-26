@@ -2,7 +2,7 @@ module.exports = {
     extends: ['stylelint-config-hudochenkov/full'],
     plugins: ['stylelint-scss', 'stylelint-order'],
     rules: {
-        indentation: 4,
+        'indentation': 4,
         'color-hex-case': 'upper',
         'color-hex-length': 'long',
         'no-descending-specificity': null,

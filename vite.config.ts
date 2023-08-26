@@ -37,10 +37,10 @@ const watchTranslations = () => ({
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
-        react(),
         eslint({
             fix: true,
         }),
+        react(),
         watchTranslations(),
     ],
 

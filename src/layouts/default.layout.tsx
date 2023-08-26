@@ -1,6 +1,4 @@
-import { TLayoutProps } from '.';
-
-const DefaultLayout = ({ children }: TLayoutProps) => {
+const DefaultLayout = ({ children }: React.PropsWithChildren<{}>) => {
     return (
         <>
             {children}
