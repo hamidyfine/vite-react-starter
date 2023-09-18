@@ -1,5 +1,7 @@
+const unknown_rules = ['function', 'if', 'each', 'else', 'include', 'mixin', 'return', 'for', 'use', 'forward', 'debug', 'warn', 'extend', 'tailwind', 'apply', 'tailwind'];
+
 module.exports = {
-    extends: ['stylelint-config-hudochenkov/full'],
+    extends: ['stylelint-config-hudochenkov/full', 'stylelint-config-standard-scss'],
     plugins: ['stylelint-scss', 'stylelint-order'],
     rules: {
         'indentation': 4,
@@ -13,12 +15,14 @@ module.exports = {
         'selector-max-id': 1,
         'selector-no-qualifying-type': [true, { ignore: ['attribute', 'class', 'id'] }],
         'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
-        'at-rule-no-unknown': [
-            true,
-            {
-                ignoreAtRules: ['function', 'if', 'each', 'else', 'include', 'mixin', 'return', 'for', 'use', 'forward', 'debug', 'warn', 'extend', 'tailwind', 'apply'],
-            },
-        ],
+        'at-rule-no-unknown': [true, { ignoreAtRules: unknown_rules }],
+        'scss/at-rule-no-unknown': [true, { ignoreAtRules: unknown_rules }],
     },
     syntax: 'scss',
+    overrides: [
+        {
+            files: ['**/*.html'],
+            customSyntax: 'postcss-html',
+        },
+    ],
 };
