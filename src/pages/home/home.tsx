@@ -1,21 +1,18 @@
-import { ChangeLocale, Locale, useLocale } from '@/components/locale';
+import { Flex } from '@mantine/core';
+import { Locale } from '@/components/locale';
 import './home.scss';
 
 const Home = () => {
-    const { t } = useLocale();
-
     return (
-        <>
+        <Flex
+            align="center"
+            h="100vh"
+            justify="center"
+        >
             <h1 className="text-3xl font-bold underline">
-                <Locale alias="hello" />
+                <Locale alias="welcome" />
             </h1>
-            <br />
-            <button>
-                {t('button:click')}
-            </button>
-            <br />
-            <ChangeLocale />
-        </>
+        </Flex>
     );
 };
 

@@ -12,6 +12,7 @@ module.exports = {
         'react-app/jest',
         'plugin:react-hooks/recommended',
         'plugin:json/recommended',
+        'plugin:@tanstack/eslint-plugin-query/recommended',
     ],
     rules: {
         'arrow-parens': 'off',
@@ -28,7 +29,7 @@ module.exports = {
         'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
         'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
         'max-len': ['error', { code: 256 }],
-        'newline-before-return': 'error',
+        'newline-before-return': 'off',
         'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['warn', 'error'] }] : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-multiple-empty-lines': 'off',

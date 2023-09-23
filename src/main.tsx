@@ -1,20 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { MantineProvider } from '@mantine/core';
 import AppRoutes from '@/routes/Routes';
 import reportWebVitals from './reportWebVitals';
 import store from '@/stores/store';
+import { theme } from './config/theme';
+import '@mantine/core/styles.css';
+import '@fontsource-variable/quicksand';
 import './main.scss';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
+const queryClient = new QueryClient();
 
-root.render(
+createRoot(document.getElementById('root')!).render(
+    // @ts-expect-error
     <React.StrictMode>
-        <Provider store={store}>
-            <AppRoutes />
-        </Provider>
+        <QueryClientProvider client={queryClient}>
+            <MantineProvider theme={theme}>
+                <Provider store={store}>
+                    <AppRoutes />
+                </Provider>
+            </MantineProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
     </React.StrictMode>,
 );
 
