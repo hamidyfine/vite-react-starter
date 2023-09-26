@@ -1,12 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { MantineProvider } from '@mantine/core';
 import AppRoutes from '@/routes/Routes';
 import reportWebVitals from './reportWebVitals';
-import store from '@/stores/store';
+// import store from '@/stores/store';
 import { theme } from './config/theme';
 import '@mantine/core/styles.css';
 import '@fontsource-variable/quicksand';
@@ -15,13 +14,11 @@ import './main.scss';
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
-    // @ts-expect-error
+    // @ts-expect-error unknown ts error
     <React.StrictMode>
         <QueryClientProvider client={queryClient}>
             <MantineProvider theme={theme}>
-                <Provider store={store}>
-                    <AppRoutes />
-                </Provider>
+                <AppRoutes />
             </MantineProvider>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

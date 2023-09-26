@@ -8,11 +8,17 @@ module.exports = {
         parser: '@typescript-eslint/parser',
     },
     extends: [
-        'react-app',
-        'react-app/jest',
+        'eslint:recommended',
+        'plugin:react/recommended',
         'plugin:react-hooks/recommended',
+        'plugin:react/jsx-runtime',
         'plugin:json/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
         'plugin:@tanstack/eslint-plugin-query/recommended',
+    ],
+    plugins: [
+        'react',
     ],
     rules: {
         'arrow-parens': 'off',
@@ -49,5 +55,10 @@ module.exports = {
         'require-jsdoc': 'off',
         'semi': 'error',
         'space-in-parens': 'off',
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
 };

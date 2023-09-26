@@ -7,6 +7,7 @@ type TLocaleProps = {
     alias: string;
     trans?: string;
     values?: object;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     components?: any;
 };
 

@@ -1,4 +1,4 @@
-const DefaultLayout = ({ children }: React.PropsWithChildren<{}>) => {
+const DefaultLayout = ({ children }: React.PropsWithChildren<unknown>) => {
     return (
         <>
             {children}
